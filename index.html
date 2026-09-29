@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Sumaiya Ali Akbar</title>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #0F172A; color: #FFFFFF; font-family: 'Segoe UI', Arial, sans-serif; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 60px; position: sticky; top: 0; background: rgba(15,23,42,0.95); backdrop-filter: blur(10px); z-index: 100; }
+  .logo { font-size: 24px; font-weight: bold; } .logo span { color: #3B82F6; }
+  .nav-links { display: flex; gap: 30px; list-style: none; font-size: 12px; font-weight: bold; }
+  .nav-links a { color: white; text-decoration: none; } .nav-links a:hover { color: #3B82F6; }
+  .follow { border: 2px solid #3B82F6; padding: 7px 18px; border-radius: 20px; font-size: 12px; cursor: pointer; }
+  .hero { display: flex; justify-content: space-between; align-items: center; padding: 90px 80px; }
+  .left { max-width: 560px; } .left p.small { color: #94A3B8; letter-spacing: 2px; font-size: 13px; }
+  .left h1 { font-size: 62px; margin: 10px 0; } .left h1 span { color: #3B82F6; }
+  .left h2 { font-size: 18px; color: #94A3B8; margin-bottom: 30px; } .left h2 span { color: #3B82F6; }
+  .icons { display: flex; gap: 12px; margin-bottom: 35px; }
+  .icons div { width: 38px; height: 38px; background: #1E293B; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .right { animation: float 3.5s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .cloud { width: 360px; height: 440px; background: #3B82F6; border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%; overflow: hidden; box-shadow: 0 0 60px rgba(59,130,246,0.45); }
+  .cloud img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  section { padding: 100px 60px; } section h2 { text-align: center; font-size: 38px; margin-bottom: 15px; } section h2 span { color: #3B82F6; }
+  .section-subtitle { text-align: center; color: #64748B; margin-bottom: 60px; font-size: 14px; }
+  #about { display: flex; justify-content: center; }
+  .about-text { max-width: 750px; background: #1E293B; padding: 40px; border-radius: 20px; border: 1px solid #2D3A4F; line-height: 1.9; color: #CBD5E1; }
+  .about-text b { color: white; }
+  #projects { background: #0B1222; border-top: 1px solid #1E293B; }
+  .p-grid { display: flex; gap: 50px; justify-content: center; flex-wrap: wrap; }
+  .p-card { background: #1E293B; width: 380px; border-radius: 20px; overflow: hidden; border: 1px solid #2D3A4F; transition: 0.5s; }
+  .p-card:hover { transform: translateY(-15px); border-color: #3B82F6; }
+  .p-card img { width: 100%; height: 240px; object-fit: cover; }
+  .p-card-content { padding: 28px; } .p-card-content p { color: #94A3B8; font-size: 14px; margin: 12px 0 20px 0; }
+  .p-card-content a { border: 1px solid #3B82F6; color: #3B82F6; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-size: 12px; font-weight: bold; }
+  #skills { background: #0F172A; }
+  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; max-width: 1100px; margin: auto; }
+  .skill-box { background: linear-gradient(135deg, #1E293B, #162032); padding: 35px 30px; border-radius: 20px; border: 1px solid #2D3A4F; transition: 0.4s; }
+  .skill-box:hover { transform: translateY(-8px); border-color: #3B82F6; }
+  .skill-icon { font-size: 32px; margin-bottom: 15px; } .skill-box p { color: #94A3B8; font-size: 13px; }
+  .skill-level { margin-top: 15px; font-size: 11px; color: #3B82F6; font-weight: bold; }
+  #contact { background: #0B1222; text-align: center; }
+  .contact-form { max-width: 550px; margin: auto; display: flex; flex-direction: column; gap: 18px; }
+  .contact-form input, .contact-form textarea { padding: 14px 18px; border-radius: 12px; border: 1px solid #2D3A4F; background: #1E293B; color: white; }
+  .contact-form button { background: #3B82F6; border: none; padding: 14px; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; }
+  .btn { border: none; background: #3B82F6; color: white; padding: 12px 28px; border-radius: 30px; font-weight: bold; cursor: pointer; }
+
+  /* === YAHAN SE ANIMATION ADDED HAI - TIKTOK WALA === */
+  .left p.small { animation: slideFromLeft 0.8s ease-out backwards; }
+  .left h1 { animation: slideFromLeft 1s ease-out 0.2s backwards; }
+  .left h2 { animation: slideFromLeft 1s ease-out 0.4s backwards; }
+  .icons { animation: slideFromLeft 1s ease-out 0.6s backwards; }
+  .left .btn { animation: slideFromLeft 1s ease-out 0.8s backwards; }
+  .right { animation: slideFromRight 1.2s ease-out backwards, float 3.5s ease-in-out 1.2s infinite; }
+
+  @keyframes slideFromLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes slideFromRight {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="logo">Port<span>folio</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">HOME</a></li>
+    <li><a href="#about">ABOUT ME</a></li>
+    <li><a href="#projects">PROJECTS</a></li>
+    <li><a href="#skills">SKILLS</a></li>
+    <li><a href="#contact">CONTACT ME</a></li>
+  </ul>
+  <div class="follow">Follow Me</div>
+</div>
+<div class="hero" id="home">
+  <div class="left">
+    <p class="small">HELLO, MY NAME IS</p>
+    <h1>Sumaiya <span>Ali Akbar</span></h1>
+    <h2>I'm a <span>Web Developer & Digital Creator</span></h2>
+    <div class="icons"><div>f</div><div>M</div><div>G</div><div>@</div><div>in</div></div>
+    <button class="btn">DOWNLOAD CV</button>
+  </div>
+  <div class="right"><div class="cloud"><img src="https://mmg.whatsapp.net/v/t62.7118-24/828413812_1122349216957589_1828706118625554047_n.enc?ccb=11-4&oh=01_Q5Aa5gEi6wLDifS07M_8Bxs-gxpUGteEy843JQ1h4y3LtKfM7Q&oe=6AE1C95B&_nc_sid=5e03e0" alt="Sumaiya"></div></div>
+</div>
+<section id="about">
+  <div class="about-text">
+    <h2 style="text-align:left; margin-top:0;">About <span>Me</span></h2>
+    <p>Assalam-o-Alaikum! I'm <b>Sumaiya Ali Akbar</b>, a passionate <b>Web Developer and Digital Creator</b>.</p>
+    <p>I don't just build websites, I create <b>digital experiences</b>. My focus is on clean design, smooth animations, and user-friendly layouts that make brands look premium. I love turning simple ideas into modern, professional websites.</p>
+    <p>Currently, I am working on creative projects like bakery stores, skincare brands, and animated invitation cards. My goal is to become a professional <b>Full-Stack Developer & Brand Designer</b>.</p>
+    <p style="color:#3B82F6; margin-top:20px; font-weight:bold;">✨ Let's create something amazing together!</p>
+  </div>
+</section>
+<section id="projects">
+  <h2>My <span>Projects</span></h2>
+  <p class="section-subtitle">SOME OF MY RECENT WORKS</p>
+  <div class="p-grid">
+    <div class="p-card">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600" alt="Bakery">
+      <div class="p-card-content"><h3>🎂 Sweet Dreams Bakery</h3><p>A modern, warm & delicious bakery e-commerce website designed with attractive product showcase and smooth user experience.</p><a href="bakery.html">View Project →</a></div>
+    </div>
+    <div class="p-card">
+      <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600" alt="Skincare">
+      <div class="p-card-content"><h3>✨ LUMI Skincare</h3><p>A luxury minimalist skincare website focused on clean beauty, product elegance & aesthetic branding.</p><a href="skincare.html">View Project →</a></div>
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <h2>My <span>Expertise</span></h2>
+  <p class="section-subtitle">WHAT I DO BEST</p>
+  <div class="skill-grid">
+    <div class="skill-box">
+      <div class="skill-icon">💻</div>
+      <h3>Web Development</h3>
+      <p>Building responsive, fast and modern websites using HTML, CSS, JavaScript with clean code.</p>
+      <div class="skill-level">HTML / CSS / JS</div>
+    </div>
+    <div class="skill-box">
+      <div class="skill-icon">🎨</div>
+      <h3>Digital Creator</h3>
+      <p>Creating aesthetic digital content, brand visuals, and social media designs that connect with audience.</p>
+      <div class="skill-level">BRANDING & CONTENT</div>
+    </div>
+    <div class="skill-box">
+      <div class="skill-icon">💌</div>
+      <h3>Animated Invitation Cards</h3>
+      <p>Designing beautiful and modern animated digital invitation cards for weddings, birthdays and special events.</p>
+      <div class="skill-level">ANIMATION / DESIGN</div>
+    </div>
+    <div class="skill-box">
+      <div class="skill-icon">🚀</div>
+      <h3>Brand Strategy</h3>
+      <p>Helping small businesses to grow online with professional portfolio and e-commerce solutions.</p>
+      <div class="skill-level">GROWTH / STRATEGY</div>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <h2>Contact <span>Me</span></h2>
+  <p class="section-subtitle">LET'S WORK TOGETHER</p>
+  <div class="contact-form">
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea rows="5" placeholder="Tell me about your project..."></textarea>
+    <button>Send Message 🚀</button>
+  </div>
+</section>
+</body>
+</html>
